@@ -1,23 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import CommentList from './components/comments/CommentList';
+import './components/comments/commentStyle.css'
+import Header from './components/header/Header';
+import RateLineBlock from './components/teacher_info/rateLine/RateLineBlock';
+import TeacherBlock from './components/teacher_info/TeacherBlock';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <main>
+        <TeacherBlock />
+        <RateLineBlock />
+        <CommentList />
+      </main>
     </div>
   );
 }
