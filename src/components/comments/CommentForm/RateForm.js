@@ -2,6 +2,8 @@ import DescriptionField from './DescriptionField'
 import RateButtonsLine from './RateButtonsLine'
 import RateLine from './RateLine'
 
+import './form.scss'
+
 export default function RateForm() {
   return (
     <div className="rate-line-block">

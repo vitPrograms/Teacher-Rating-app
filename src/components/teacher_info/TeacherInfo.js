@@ -10,7 +10,7 @@ export default function TeacherInfo() {
   return (
     <div className="teacher-info">
         <TeacherNameBlock />
-        {isVoted ? <TeacherRateBlock /> : <></>}
+        {isVoted ? <TeacherRateBlock /> : null}
     </div>
   )
 }

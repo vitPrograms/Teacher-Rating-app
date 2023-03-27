@@ -1,4 +1,3 @@
-import React, { useEffect, useRef } from 'react'
 import { useSelector } from 'react-redux';
 import { selectTotalVoted } from '../../../features/studentsRate/studentsRateSlice';
 
@@ -9,8 +8,8 @@ export default function Rate(props) {
     let size = voted / totalVoted
 
   return (
-    <div className={`rate ${power}`} style={{flex: size}}>
-        <span className="number" title={`Студентів проголосувало: ${voted}`}>
+    <div className={`rate ${power} unselectable`} style={{flex: size}} title={`Студентів проголосувало: ${voted}`}>
+        <span className="number">
             { rate }
         </span>
         {size <= 0.1 ? (

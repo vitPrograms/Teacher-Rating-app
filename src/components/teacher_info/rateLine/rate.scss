@@ -1,0 +1,75 @@
+
+// SCSS - Colors
+
+
+// SCSS - Mixins
+@mixin interFont() {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 800;
+}
+
+
+.rate-line {
+    position: relative;
+    display: flex;
+
+    overflow: hidden;
+
+    width: 100%;
+
+    text-align: center;
+    align-items: center;
+}
+
+.rate {
+    position: relative;
+    display: flex;
+
+    flex-basis: 20%;
+    flex-flow: row nowrap;
+    flex-direction: column;
+
+    height: 50px;
+
+    transition: 1s ease;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.number {
+    @include interFont();
+    color: white;
+}
+
+.voted-user-count {
+    @include interFont();
+    position: absolute;
+    opacity: 0;
+
+    overflow: visible;
+
+    bottom: 5%;
+
+    color: white;
+    font-size: 12px;
+
+    z-index: 1000;
+
+    transition: .5s all;
+}
+
+.student-count {
+    @include interFont();
+    position: relative;
+
+    color: #515151;
+    font-size: 16px;
+}
+
+.rate:hover .voted-user-count {
+    opacity: 1;
+
+    transition: .5s all;
+}

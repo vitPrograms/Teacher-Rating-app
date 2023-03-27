@@ -4,7 +4,7 @@ export default function UserData() {
   return (
     <div className="header-student-data">
         <span>Student#35356</span>
-        <a href="#">(Вийти)</a>
+        <a href="#" className='unselectable'>(Вийти)</a>
     </div>
   )
 }

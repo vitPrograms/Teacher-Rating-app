@@ -1,18 +1,30 @@
-import CommentList from './components/comments/CommentList';
-import './components/comments/commentStyle.css'
+import './main.scss' 
+
 import Header from './components/header/Header';
-import RateLineBlock from './components/teacher_info/rateLine/RateLineBlock';
-import TeacherBlock from './components/teacher_info/TeacherBlock';
+
+import React from "react";
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import TeacherPage from './pages/TeacherPage';
+import Footer from './components/footer/Footer';
+import HomePage from './pages/HomePage';
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <main>
-        <TeacherBlock />
-        <RateLineBlock />
-        <CommentList />
-      </main>
+    <div className='App'>
+      <BrowserRouter>
+        <Header />
+        <main>
+          
+            <Routes>
+                <Route path='/' element={<HomePage />} />
+                <Route path='/:teacherId' element={<TeacherPage />} />
+                <Route path='*' element={<div>Page not found</div>} />
+            </Routes>
+
+          <Footer />
+        </main>
+        
+      </BrowserRouter>
     </div>
   );
 }

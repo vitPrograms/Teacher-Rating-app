@@ -5,6 +5,8 @@ import RateLine from './RateLine'
 import TotalVotedStudents from './TotalVotedStudents'
 import RateForm from '../../comments/CommentForm/RateForm'
 
+import './rate.scss'
+
 export default function RateLineBlock() {
   const isVoted = useSelector(selectVotedStatus)
 
@@ -15,8 +17,8 @@ export default function RateLineBlock() {
         <>
           <div className="title">Оцінки студентів</div>
           <div className="rate-line-block">
-            <TotalVotedStudents />
             <RateLine />
+            <TotalVotedStudents />
           </div>
         </>
       ) : (

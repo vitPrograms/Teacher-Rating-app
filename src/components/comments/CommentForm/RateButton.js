@@ -27,7 +27,8 @@ export default function RateButton({power, active = false}) {
         timeout={500}>
             {state => (
                 <button 
-                    className={`eveluate btn rate ${power} ${state} ${isActive}`}
+                    className={`eveluate btn rate ${power} ${state} ${isActive} unselectable`}
+                    disabled={!active}
                     onClick={postComment}>
                     <span className="rate-button">
                         Оцінити

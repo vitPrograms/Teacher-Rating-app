@@ -1,9 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    rate: 0,
-    description: '',
-    studentId: null
+    rate: {
+        rate: 0,
+        description: '',
+        studentId: null
+    }
+    
 }
 
 export const rateSlice = createSlice({
@@ -14,13 +17,13 @@ export const rateSlice = createSlice({
             state.rate = action.payload
         },
         setDescription: (state, action) => {
-            state.description = action.payload
+            state.rate.description = action.payload
         }
     }
 })
 
-export const selectRate = state => state.rate.rate
-export const selectDescription = state => state.rate.description
+export const selectRate = state => state.rate.rate.rate
+export const selectDescription = state => state.rate.rate.description
 
 export const { setRate, setDescription } = rateSlice.actions
 export default rateSlice.reducer

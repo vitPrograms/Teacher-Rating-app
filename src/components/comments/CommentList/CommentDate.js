@@ -1,8 +1,10 @@
 import React from 'react'
+import { weekDays } from '../weekDays'
 
 export default function CommentDate({timestamp}) {
     const date = new Date(timestamp)
     const now = new Date()
+    const titleDate = `${date.getDate()}.${date.getMonth()+1}.${date.getFullYear()}, ${weekDays[date.getDay()]} | ${date.getHours()}:${date.getMinutes()}`
 
     const formatedDate = now-date <= (1000 * 60 * 60 * 24) 
         ? timeSince(now, date) + ' тому'
@@ -33,7 +35,7 @@ export default function CommentDate({timestamp}) {
     }
 
     return (
-        <div className="comment-date" title={timestamp}>
+        <div className="comment-date" title={titleDate}>
             {formatedDate}
         </div>
     )

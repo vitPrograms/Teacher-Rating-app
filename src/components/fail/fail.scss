@@ -1,0 +1,50 @@
+
+// SCSS - Colors
+
+
+// SCSS - Mixins
+@mixin interFont() {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 800;
+}
+
+.fail-block {
+    display: flex;
+    position: relative;
+
+    justify-content: center;
+    align-items: center;
+
+    padding-top: 50px;
+
+    width: 100%;
+
+    img {
+        display: flex;
+        position: relative;
+        max-width: 30%;
+        max-height: 30%;
+    }
+
+    .fail-message {
+        @include interFont();
+        display: flex;
+        position: relative;
+        
+        flex-direction: column;
+        flex-wrap: wrap;
+
+        h2 {
+            color: #d17f7e;
+            font-size: 40pt;
+
+        }
+
+        p {
+            color: #1A1A1A;
+            font-size: 10pt;
+        }
+    }
+}
+

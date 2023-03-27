@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { selectAllStudents } from '../../features/students/studentsSlice'
+import { selectAllStudents } from '../../../features/students/studentsSlice'
 
 export default function CommentAuthor({studentId}) {
     const users = useSelector(selectAllStudents)

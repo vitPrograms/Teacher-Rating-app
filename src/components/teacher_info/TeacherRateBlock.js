@@ -1,17 +1,23 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { selectAverageStudentsRate } from '../../features/studentsRate/studentsRateSlice'
+import { selectRate } from '../../features/rate/rateSlice'
+import { powers } from '../comments/powers'
 
 export default function TeacherRateBlock() {
   const averageRate = useSelector(selectAverageStudentsRate)
+  const studentRate = useSelector(selectRate)
+
+  const shortNumber = Number(averageRate.toFixed(2))
+  const rateColor = powers[Math.round(shortNumber)]
 
   return (
-    <div className="teacher-block-rate" title={`Точна оцінка: ${averageRate}`}>
-        <div className="current-rate" >
-            {Number(averageRate.toFixed(2))}/5.0
+    <div className="teacher-block-rate">
+        <div className={`current-rate ${rateColor} unselectable`} title={`Точна оцінка: ${averageRate}`} >
+            {shortNumber}/5.0
         </div>
-        <div className="user-rate">
-            Ваша оцінка: 4
+        <div className="user-rate unselectable" title={`Дата оцінки: ${new Date()}`}>
+            Ваша оцінка: {studentRate}
         </div>
     </div>
   )
