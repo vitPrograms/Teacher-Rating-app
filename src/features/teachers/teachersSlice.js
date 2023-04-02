@@ -1,7 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+export const SELECT = {
+    ALL: 'all',
+    RATED: 'rated',
+    UNRATED: 'unrated'
+}
+
+export const SORT = {
+    STUDENTS: 'studentsCount',
+    LOWRATE: 'lowRate',
+    HIGHRATE: 'highRate'
+}
+
 const initialState = {
-    selectOption: "rated",
+    selectOption: "all",
     sortOption: "studentsCount",
     teachers: [
         {
@@ -56,6 +68,9 @@ export const teachersSlice = createSlice({
         changeSortOptionForTeacher: (state, action) => {
             state.sortOption = action.payload
         },
+        addNewTeachers: (state, action) => {
+            state.teachers = [...state.teachers, ...action.payload]
+        }
     }
 })
 
@@ -63,5 +78,5 @@ export const selectAllTeachers = state => state.teachers.teachers
 export const selectSelectOption = state => state.teachers.selectOption
 export const selectSortOption = state => state.teachers.sortOption
 
-export const { changeTeachers, changeSelectOptionForTeacher, changeSortOptionForTeacher } = teachersSlice.actions
+export const { changeTeachers, changeSelectOptionForTeacher, changeSortOptionForTeacher, addNewTeachers } = teachersSlice.actions
 export default teachersSlice.reducer

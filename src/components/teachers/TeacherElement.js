@@ -21,7 +21,7 @@ export default function TeacherElement({teacher}) {
     }
 
     const getAverageRate = () => {
-        return teacher.averageRate.toFixed(2)
+        return teacher?.averageRate?.toFixed(2)
     }
 
     const getStudentRatedCount = () => {
