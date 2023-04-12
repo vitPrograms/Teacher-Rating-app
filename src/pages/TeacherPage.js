@@ -7,26 +7,28 @@ import Loading from '../components/loading/Loading'
 
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
-import { changeTeacherInfo, selectTeacher } from '../features/teacher/teacherSlice';
-import { selectUser } from '../features/user/userSlice';
-import { changeVotedStatus } from '../features/votedStatus/votedStatusSlice';
+import { changeTeacherInfo } from '../features/teacher/teacherSlice';
+import { selectUserId } from '../features/user/userSlice';
+import { changeVotedStatus, selectVotedStatus } from '../features/votedStatus/votedStatusSlice';
 import { setRate } from '../features/rate/rateSlice';
 import Fail404 from '../components/fail/Fail404';
+import { setFormTeacherId } from '../features/rate/formRateSlice';
 
 export default function TeacherPage() {
+    const isVoted = useSelector(selectVotedStatus)
     const dispatch = useDispatch()
     const { teacherId } = useParams()
     const [isLoading, setLoading] = useState(true)
     const [isError, setError] = useState(false)
     const [pageFound, setPageFound] = useState(true)
-    const user = useSelector(selectUser)
+    const studentId = useSelector(selectUserId)
 
     useEffect(() => {
         fetchTeacher(teacherId)
         .then(response => response.json())
         .then(teacherData => {
             dispatch(changeTeacherInfo(teacherData))
-            dispatch(changeVotedStatus(false))
+            dispatch(setFormTeacherId(teacherId))
         })
         .catch(err => {
             setPageFound(false)
@@ -34,7 +36,7 @@ export default function TeacherPage() {
     
         if(!pageFound || !teacherId) return
     
-        fetchRate(user.id, teacherId)
+        fetchRate(studentId, teacherId)
         .then(response => response.json())
         .then((rate) => {
             dispatch(setRate(rate))
@@ -46,8 +48,7 @@ export default function TeacherPage() {
         .finally(() => {
             setLoading(false)
         })
-    
-    }, [])
+    }, [studentId, teacherId, pageFound, isVoted])
 
     if(isLoading) return <><Loading /> </>
     if(!pageFound) return <><Fail404 /> </>
@@ -62,11 +63,11 @@ export default function TeacherPage() {
 
 const API = 'http://localhost:8080/api';
 const fetchTeacher = async (teacherId) => {
-    return fetch(API + "/teacher" + "/" + teacherId)
+    return fetch(`${API}/teacher/${teacherId}`)
 }
 
 const fetchRate = async (studentId, teacherId) => {
-    return fetch(API + "/rate" + "?" + `studentId=${studentId}&teacherId=${teacherId}`)
+    return fetch(`${API}/rate?studentId=${studentId}&teacherId=${teacherId}`)
 }
 
 

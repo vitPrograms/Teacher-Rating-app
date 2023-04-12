@@ -1,14 +1,11 @@
-import { createSlice, nanoid } from "@reduxjs/toolkit";
-
-const d = new Date()
-d.setHours(-50)
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = [
     {
         id: 1,
         studentId: 1,
         rate: 4,
-        timestamp: d.getTime(),
+        timestamp: new Date().getTime(),
         description: ''
     },
     {
@@ -24,26 +21,16 @@ export const commentsSlice = createSlice({
     name: 'comments',
     initialState,
     reducers: {
-        addComment: {
-            reducer: (state, action) => {
-                state.push(action.payload)
-            },
-            prepare: (studentId, rate, description) => {
-                return {
-                    payload: {
-                        id: nanoid(),
-                        studentId,
-                        rate,
-                        timestamp: new Date().getTime(),
-                        description
-                    }
-                }
-            }
+        setComments: (state, action) => {
+            return [...action.payload]
+        },
+        addComment: (state, action) => {
+            return [...state, action.payload]
         }
     }
 })
 
 export const selectAllComments = (state) => state.comments
 
-export const { addComment } = commentsSlice.actions
+export const { setComments, addComment } = commentsSlice.actions
 export default commentsSlice.reducer

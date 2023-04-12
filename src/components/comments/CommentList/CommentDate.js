@@ -18,7 +18,7 @@ export default function CommentDate({timestamp}) {
             const hours = Math.floor(interval)
             let hourlabel = ' годин'
             if(hours === 1) hourlabel = ' година'
-            if(hours === 2 || hours === 3 || hours === 4) hourlabel = ' години'
+            if(hours === 2 || hours === 3 || hours === 4 || hours === 22 || hours === 23 || hours === 24) hourlabel = ' години'
             return hours + hourlabel;
         }
 

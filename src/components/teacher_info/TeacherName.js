@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import { selectTeacher } from '../../features/teacher/teacherSlice'
 
 export default function TeacherName() {
-  const teacher = useSelector(selectTeacher).teacher
+  const teacher = useSelector(selectTeacher)
   return (
     <div className="teacher-name">
         {teacher.fullname}

@@ -7,12 +7,12 @@ export default function TeacherList(props) {
     const teachers = props.teachers
 
     const renderTeachers = () => {
-        return teachers.map((teacher) => <TeacherElement key={teacher.id} teacher={teacher}/>)
+        return teachers.map((teacher, id) => <TeacherElement key={id} teacher={teacher}/>)
     }
 
     return (
-            <ul className="teacher-list">
+        <ul className="teacher-list" id="list">
                 {renderTeachers()}
-            </ul>
+        </ul>
     )
 }

@@ -9,15 +9,6 @@
     font-weight: $weight;
 }
 
-.student-id {
-    position: relative;
-
-    margin-left: 10px;
-    width: fit-content;
-
-    color: #000;
-}
-
 .comment-title {
     margin-top: 100px;
 }
@@ -34,6 +25,34 @@
     margin: auto;
 
     list-style: none;
+}
+
+.no-rates {
+    @include interFont();
+    position: relative;
+    display: flex;
+
+    width: calc(100% - 10px);
+    height: fit-content;
+
+    text-align: center;
+    justify-content: center;
+    flex-flow: column wrap;
+
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 150px;
+
+    span {
+        font-size: 12pt;
+    }
+
+    h2 {
+        color: #04001A;
+        font-size: 15pt;
+        text-transform: uppercase;
+    }
+
 }
 
 .comment-element {
@@ -70,25 +89,35 @@
 
     color: #fff;
     font-size: 24px;
-}
 
-.student-rate-data {
-    position: relative;
-    display: flex;
+    .student-id {
+        position: relative;
+        flex: 1;
 
-    flex-flow: row wrap;
+        margin-left: 15px;
+        text-align: left;
+    
+        color: #000;
+    }
 
-    justify-content: space-between;
-
-    width: 60%;
-    height: 40px;
-
-    padding: 0 10px;
-
-    align-items: center;
-    text-align: center;
-
-    border-radius: 23px 0px 0px 23px;
+    .student-rate-data {
+        position: relative;
+        display: flex;
+    
+        flex-flow: row wrap;
+    
+        justify-content: space-between;
+        
+        flex: 1;
+        height: 40px;
+    
+        padding: 0 10px;
+    
+        align-items: center;
+        text-align: center;
+    
+        border-radius: 23px 0px 0px 23px;
+    }
 }
 
 .comment-date {

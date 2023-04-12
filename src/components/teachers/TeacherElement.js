@@ -1,24 +1,40 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { selectUser } from "../../features/user/userSlice";
+import { selectUserId } from "../../features/user/userSlice";
 import { powers } from "../comments/powers";
 
 export default function TeacherElement({teacher}) {
 
-    const user = useSelector(selectUser)
+    const userId = useSelector(selectUserId)
     const [isRated, setRated] = useState(false)
     const [studentRate, setStudentRate] = useState(0)
 
-    for(let el of user.ratedTeachers) {
-        if(isRated === true) break
+    const fetchStudentRate = () => {
+        const BASE_URL = 'http://localhost:8080/api/rate'
 
-        if(el.id === teacher.id) {
+        fetch(BASE_URL + `?studentId=${userId}&teacherId=${teacher.id}`)
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                setRated(false)
+                setStudentRate(0)
+            }
+        })
+        .then(data => {
+            setStudentRate(data?.rate)
             setRated(true)
-            setStudentRate(el.rate)
-            break
-        }
+        })
+        .catch(err => {
+            setRated(false)
+            setStudentRate(0)
+        })
     }
+
+    useEffect(() => {
+        fetchStudentRate()
+    }, [userId, teacher.id])
 
     const getAverageRate = () => {
         return teacher?.averageRate?.toFixed(2)
@@ -37,10 +53,11 @@ export default function TeacherElement({teacher}) {
     }
 
     return (
-        <Link to={`/${teacher.id}`} className="teacher-link">
-            <li className="teacher-element">
+        <Link key={teacher.id} to={`/${teacher.id}`} className={`teacher-link`}>
+            <li className={`teacher-element`}>
                 <div className="teacher-element-block">
                     <div className="name">
+                        {teacher.id}
                         {getTeacherFullName()}
                     </div>
                     <div className="legend">

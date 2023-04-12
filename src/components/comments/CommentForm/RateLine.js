@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { powers } from '../powers'
 import RateMark from './RateMark'
-import { setRate } from '../../../features/rate/rateSlice'
+import { setFormRate } from '../../../features/rate/formRateSlice'
 
 export default function RateLine() {
     const [lastRate, setLastRate] = useState(0)
@@ -11,7 +11,7 @@ export default function RateLine() {
 
     const renderRateMarks = () => {
         for(let [key, value] of Object.entries(powers)) {
-            const isActive = lastRate == key ? true : false
+            const isActive = lastRate === key ? true : false
             marks.push(<RateMark key={key} power={value} value={key} active={isActive} />)
         }
         return marks
@@ -23,7 +23,7 @@ export default function RateLine() {
         if(radioBtn.value === lastRate) return
         
         setLastRate(value)
-        dispatch(setRate(value))
+        dispatch(setFormRate(value))
         radioBtn.checked = true
     }
 

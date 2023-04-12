@@ -30,6 +30,7 @@ main {
     border-radius: 22px;
 
     overflow: hidden;
+    transition: .5s;
 
     width: 954px;
     min-height: 50vh;
@@ -92,4 +93,14 @@ button {
 
 .unselectable {
     user-select: none;
+}
+
+.highlight {
+    $border-color: #04001A;
+    padding: 0 5px;
+    border-left: 4px solid $border-color;
+    border-right: 4px solid $border-color;
+    border-radius: 6px;
+
+    color: $border-color;
 }

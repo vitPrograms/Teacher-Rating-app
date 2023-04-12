@@ -2,10 +2,10 @@ import React from 'react'
 import RateButton from './RateButton'
 import { powers } from '../powers'
 import { useSelector } from 'react-redux'
-import { selectRate } from '../../../features/rate/rateSlice'
+import { selectFormRate } from '../../../features/rate/formRateSlice'
 
 export default function RateButtonsLine() {
-    const rate = useSelector(selectRate)
+    const rate = useSelector(selectFormRate)
     const buttons = []
 
     const renderRateButtons = () => {
@@ -14,7 +14,7 @@ export default function RateButtonsLine() {
             buttons.push(<RateButton key={key} power={value} active={isActive} />)
         }
         return buttons
-    } 
+    }
 
   return (
     <div className="rate-button-block">

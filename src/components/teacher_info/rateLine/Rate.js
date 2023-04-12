@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { selectTotalVoted } from '../../../features/studentsRate/studentsRateSlice';
+import { selectTotalVoted } from '../../../features/teacher/teacherSlice';
 
 export default function Rate(props) {
     const totalVoted = useSelector(selectTotalVoted)

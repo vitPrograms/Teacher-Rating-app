@@ -121,9 +121,19 @@ $mainLabelColor: #003F53;
     display: flex;
     text-decoration: none;
 
-    z-index: 1000;
+    z-index: 2;
 
     width: 100%;
+
+    .charactersUsed {
+        @include interFont();
+        position: absolute;
+        
+        font-size: 10px;
+
+        bottom: 10px;
+        right: 10px;
+    }
 }
 
 .comment-area {
@@ -142,6 +152,7 @@ $mainLabelColor: #003F53;
 
     font-size: 14px;
 
+    background-color: #F0F0F0;
     color: #1A1A1A;
 
     &:focus {

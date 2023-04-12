@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-export default function CommentDescription({description}) {
+export default function CommentDescription({content}) {
   const [isExpanded, setExpanded] = useState(false)
 
   const expandComment = e => {
@@ -20,11 +20,11 @@ export default function CommentDescription({description}) {
   }
   
   const descriptionBlock = () => {
-    if(description.length >= 400) {
+    if(content?.length >= 400) {
       return (
         <>
           <div className={`comment-content short`}>
-            <p>{description}</p>
+            <p>{content}</p>
           </div>
           <button className={`expand-comment-btn`} onClick={expandComment}>
             {'Показати'}
@@ -33,13 +33,13 @@ export default function CommentDescription({description}) {
         </>
         
       )
-    } else if(description === '') {
+    } else if(content == '' || content == null) {
       return (
         <div className={`comment-content unactive`}>{'Коментар відсутній'}</div>  
       )
     } else {
       return (
-        <div className={`comment-content`}>{description}</div>
+        <div className={`comment-content`}>{content}</div>
       )
     }
   }

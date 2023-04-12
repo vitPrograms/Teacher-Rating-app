@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import { selectTeacher } from '../../features/teacher/teacherSlice'
 
 export default function TeacherLegend() {
-  const teacher = useSelector(selectTeacher).teacher
+  const teacher = useSelector(selectTeacher)
   return (
     <div className="teacher-legend">
         {renderTeacherSubjects(teacher.subjects)}

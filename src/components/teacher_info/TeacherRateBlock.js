@@ -1,11 +1,11 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { selectAverageStudentsRate } from '../../features/studentsRate/studentsRateSlice'
 import { selectRate } from '../../features/rate/rateSlice'
 import { powers } from '../comments/powers'
+import { selectAverageRate } from '../../features/teacher/teacherSlice'
 
 export default function TeacherRateBlock() {
-  const averageRate = useSelector(selectAverageStudentsRate)
+  const averageRate = useSelector(selectAverageRate)
   const studentRate = useSelector(selectRate)
 
   const shortNumber = Number(averageRate.toFixed(2))

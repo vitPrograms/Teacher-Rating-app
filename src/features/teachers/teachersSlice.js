@@ -1,20 +1,20 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-export const SELECT = {
-    ALL: 'all',
-    RATED: 'rated',
-    UNRATED: 'unrated'
-}
+// export const SELECT = {
+//     ALL: 'all',
+//     RATED: 'rated',
+//     UNRATED: 'unrated'
+// }
 
-export const SORT = {
-    STUDENTS: 'studentsCount',
-    LOWRATE: 'lowRate',
-    HIGHRATE: 'highRate'
-}
+// export const SORT = {
+//     STUDENTS: 'studentsCount',
+//     LOWRATE: 'lowRate',
+//     HIGHRATE: 'highRate'
+// }
 
 const initialState = {
     selectOption: "all",
-    sortOption: "studentsCount",
+    sortOption: "studentsCount,asc",
     teachers: [
         {
             id: 1,
