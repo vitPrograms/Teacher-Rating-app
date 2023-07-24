@@ -1,0 +1,247 @@
+
+// SCSS - Colors
+$containerbg: #F2FCFF;
+$nameColor: #003F53;
+$legendColor: #00C2FF;
+$mainLabelColor: #003F53;
+
+
+// SCSS - Mixins
+@mixin interFont() {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 800;
+}
+
+.rate-line-block {
+    position: relative;
+    display: block;
+
+    width: calc(100% - 10px);
+
+    margin: auto;
+
+    align-items: center;
+
+}
+
+.rate-line {
+    position: relative;
+    display: flex;
+
+    overflow: hidden;
+
+    width: 100%;
+
+    text-align: center;
+    align-items: center;
+}
+
+.select .rate:hover {
+    cursor: pointer;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    transition: .2s;
+}
+
+.selected {
+    box-shadow: inset 0px 6px 4px rgba(0, 0, 0, 0.25);
+    font-size: 2;
+
+    span {
+        animation: flip .5s forwards;
+    }
+}
+
+@keyframes flip {
+	0% {
+		transform: perspective(400px) rotateY(0);
+		animation-timing-function: ease-out;
+	}
+	40% {
+		transform: perspective(400px) translateZ(150px) rotateY(170deg);
+		animation-timing-function: ease-out;
+	}
+	50% {
+		transform: perspective(400px) translateZ(150px) rotateY(190deg) scale(1);
+		animation-timing-function: ease-in;
+	}
+	80% {
+		transform: perspective(400px) rotateY(360deg) scale(.95);
+		animation-timing-function: ease-in;
+	}
+	100% {
+		transform: perspective(400px) scale(1);
+		animation-timing-function: ease-in;
+	}
+}
+
+.rate {
+    position: relative;
+    display: flex;
+
+    flex-basis: 20%;
+    flex-flow: row nowrap;
+    flex-direction: column;
+
+    height: 50px;
+
+    transition: 1s ease;
+
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+        .voted-user-count {
+            opacity: 1;
+            transition: .5s all;
+        }
+    }
+}
+
+.mark {
+    @include interFont();
+
+    font-size: 20px;
+    line-height: 29px;
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+.number {
+    @include interFont();
+    color: white;
+}
+
+.student-comment-line {
+    position: relative;
+    display: flex;
+    text-decoration: none;
+
+    z-index: 2;
+
+    width: 100%;
+
+    .charactersUsed {
+        @include interFont();
+        position: absolute;
+        
+        font-size: 10px;
+
+        bottom: 10px;
+        right: 10px;
+    }
+}
+
+.comment-area {
+    @include interFont();
+    position: relative;
+
+    width: 100%;
+    min-width: 100%;
+
+    height: fit-content;
+    min-height: 100px;
+    max-height: 50vh;
+
+    border: none;
+    padding: 10px;
+
+    font-size: 14px;
+
+    background-color: #F0F0F0;
+    color: #1A1A1A;
+
+    &:focus {
+        outline: none;
+    }
+
+    &::placeholder {
+        line-height: 19px;
+    
+        color: #A0A0A0;
+    }
+}
+
+.rate-button-block {
+    position: relative;
+    display: flex;
+
+    text-align: center;
+    align-items: center;
+
+    width: 100%;
+    height: fit-content;
+
+    .btn {
+        position: relative;
+        display: flex;
+        opacity: 0;
+    
+        z-index: 0;
+    
+        cursor: pointer;
+    
+        height: 50px;
+    
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 0px 0px 23px 23px;
+    }
+
+    .active {
+        opacity: 1;
+    }
+    
+    .btn:hover {
+        box-shadow: inset 0px -4px 4px rgba(0, 0, 0, 0.25);
+        transition: .2s;
+    }
+}
+
+.eveluate.entering {
+    visibility: visible;
+    animation: show-button .5s forwards;
+}
+
+.eveluate.entered {
+    visibility: visible;
+}
+
+.eveluate.exiting {
+    visibility: hidden;
+    animation: show-button .5s reverse;
+}
+
+@keyframes show-button {
+    0%{
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    50%{
+        opacity: .5;
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.eveluate.exited {
+    visibility: hidden;
+}
+
+.rate-button {
+    display: flex;
+
+    color: #FFFFFF;
+
+    font-weight: 800;
+    font-size: 20px;
+}

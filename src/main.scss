@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@800&display=swap');
+// SCSS - Colors
+
+
+// SCSS - Mixins
+@mixin interFont($weight: 800) {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: $weight;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #E8F9FF;
+}
+
+main {
+    position: relative;
+    display: block;
+
+    margin: 93px auto;
+
+    border-radius: 22px;
+
+    overflow: hidden;
+    transition: .5s;
+
+    width: 954px;
+    min-height: 500px;
+    height: fit-content;
+
+    background: #FFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.excelent {
+    background: #006C4C !important;
+}
+
+.high {
+    background: #00A876 !important;
+}
+
+.medium {
+    background: #DADE05 !important;
+}
+
+.low {
+    background: #FF4848 !important;
+}
+
+.poor {
+    background: #ff0101 !important;
+}
+
+::-webkit-scrollbar {
+    display: none;
+    overflow: hidden;
+}
+
+.title {
+    @include interFont();
+    position: relative;
+    display: block;
+
+    text-align: center;
+    align-items: center;
+
+    margin-top: 40px;
+
+    color: black;
+    font-size: 24px;
+}
+
+button {
+    border: none;
+}
+
+.invisible {
+    display: none;
+}
+
+.unactive {
+    color: #515151;
+}
+
+.unselectable {
+    user-select: none;
+}
+
+.highlight {
+    $border-color: #04001A;
+    padding: 0 5px;
+    border-left: 4px solid $border-color;
+    border-right: 4px solid $border-color;
+    border-radius: 6px;
+
+    color: $border-color;
+}

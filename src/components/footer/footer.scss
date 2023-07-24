@@ -1,0 +1,30 @@
+
+// SCSS - Colors
+
+
+// SCSS - Mixins
+@mixin interFont() {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 800;
+}
+
+.footer-block {
+    @include interFont();
+
+    position: absolute;
+    bottom: 0;
+    
+    width: 100%;
+    height: 100px;
+
+    background-color: #04001A;
+
+    display: flex;
+
+    justify-content: space-around;
+    align-items: center;
+
+    padding: 30px;
+    color: #525252;
+}
